@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
 public enum TOWER_TYPE{ MAGIC, LASER, MISSLE, TOWER_COUNT}
@@ -19,14 +20,22 @@ public class Tower : MonoBehaviour
     [SerializeField] private float percentSell = 0.70f;
     [SerializeField] private TOWER_TYPE towerType = TOWER_TYPE.LASER;
     [SerializeField] public GameObject towerHead;
-    [SerializeField] private Player player;
     private int currentUpgradeAmount = 0;
     private float sellPrice;
     private int totalCost;
     private int killAmount;
+    private Player player;
+    private GameObject playerObj;
 
     void Start()
     {
+        if(GameObject.FindGameObjectWithTag("Player") != null){
+            playerObj = GameObject.FindGameObjectWithTag("Player");
+            player = playerObj.GetComponent<Player>();
+            towerDamage *= player.GetDamage();
+            shootRate *= player.GetAttackSpeed();
+
+        }
         totalCost = purchaseCost;
         killAmount = 0;
     }
@@ -34,14 +43,15 @@ public class Tower : MonoBehaviour
     void Update()
     {
         sellPrice = totalCost - (totalCost * percentSell);
+        player = playerObj.GetComponent<Player>();
     }
 
     public void UpgradeTower()
     {
         if(currentUpgradeAmount < maxAmountOfUpgrades)
         {
-            towerDamage += incrementDamageRateUpgrade * player.GetDamage();
-            shootRate -= incrementShootRateUpgrade * player.GetAttackSpeed();
+            towerDamage += incrementDamageRateUpgrade;
+            shootRate -= incrementShootRateUpgrade;
             towerRange += incrementRangeRateUpgrade;
             totalCost += baseUpgradeCost;
             baseUpgradeCost *= incrementUpgrateCostAmount;

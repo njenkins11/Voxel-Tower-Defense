@@ -349,7 +349,6 @@
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/PlayerData.cs"
 "Assets/Scripts/Projectile.cs"
-"Assets/Scripts/SaveController.cs"
 "Assets/Scripts/SaveLoad.cs"
 "Assets/Scripts/Tower.cs"
 "Assets/Scripts/TowerSelector.cs"
