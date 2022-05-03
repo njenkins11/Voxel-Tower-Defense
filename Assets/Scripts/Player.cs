@@ -5,22 +5,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-   private int gold;
-   private int startCash;
-   private int health;
-   private double attackSpeed;
-   private double damage;
+    [SerializeField] private int gold;
+      [SerializeField] private int startCash;
+      [SerializeField] private int health;
+      [SerializeField] private float attackSpeed;
+      [SerializeField] private float damage;
 
     public int GetGold(){return gold;}
     public void SetGold(int gold){this.gold = gold;}
-    public double GetAttackSpeed(){return attackSpeed;}
-    public void SetAttackSpeed(double attackSpeed){this.attackSpeed = attackSpeed;}
-    public double GetDamage(){return damage;}
+    public float GetAttackSpeed(){return attackSpeed;}
+    public void SetAttackSpeed(float attackSpeed){this.attackSpeed = attackSpeed;}
+    public float GetDamage(){return damage;}
     public int GetHealth(){return health;}
     public int GetStartCash(){return startCash;}
     public void SetStartCash(int cash){startCash = cash;}
     public void SetHealth(int health){this.health = health;}
-    public void SetDamage(double damage){this.damage = damage;}
+    public void SetDamage(float damage){this.damage = damage;}
 
     public void SaveData(){
         SaveLoad.SaveData(this);

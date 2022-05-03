@@ -19,6 +19,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private float percentSell = 0.70f;
     [SerializeField] private TOWER_TYPE towerType = TOWER_TYPE.LASER;
     [SerializeField] public GameObject towerHead;
+    [SerializeField] private Player player;
     private int currentUpgradeAmount = 0;
     private float sellPrice;
     private int totalCost;
@@ -39,8 +40,8 @@ public class Tower : MonoBehaviour
     {
         if(currentUpgradeAmount < maxAmountOfUpgrades)
         {
-            towerDamage += incrementDamageRateUpgrade;
-            shootRate -= incrementShootRateUpgrade;
+            towerDamage += incrementDamageRateUpgrade * player.GetDamage();
+            shootRate -= incrementShootRateUpgrade * player.GetAttackSpeed();
             towerRange += incrementRangeRateUpgrade;
             totalCost += baseUpgradeCost;
             baseUpgradeCost *= incrementUpgrateCostAmount;

@@ -6,8 +6,8 @@ public class PlayerData
     public int gold;
     public int health;
     public int startCash;
-    public double damage;
-    public double attackSpeed;
+    public float damage;
+    public float attackSpeed;
 
     public PlayerData(Player player){
         gold = player.GetGold();
