@@ -16,4 +16,20 @@ public class Player : MonoBehaviour
     public double GetDamage(){return damage;}
     public void SetDamage(double damage){this.damage = damage;}
 
+    public void SaveData(){
+        SaveLoad.SaveData(this);
+    }
+
+    public void LoadData(){
+        PlayerData playerData = SaveLoad.LoadSave();
+
+        gold = playerData.gold;
+        damage = playerData.damage;
+        attackSpeed = playerData.attackSpeed;
+    }
+
+    void Start(){
+        LoadData();
+    }
+
 }
