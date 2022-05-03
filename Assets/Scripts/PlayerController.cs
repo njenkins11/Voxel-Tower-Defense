@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{
-    [SerializeField] private int startHealth = 20;
+{    
     [SerializeField] private int startMoney = 0;
+    [SerializeField] private Player player;
     private int health;
-    private static int money;
+    private static int cash;
     private int level;
     private bool grantedLevel;
     private int rewardMoney;
+    
     // Start is called before the first frame update
     void Start()
     {
-        health = startHealth;
-        money = startMoney;
+        health = player.GetHealth();
+        cash = player.GetStartCash();
         grantedLevel = true;
         level = 1;
     }
@@ -45,16 +46,19 @@ public class PlayerController : MonoBehaviour
             grantedLevel = true;
             rewardMoney = startMoney * level;
             GetComponent<GameUIController>().StartCoroutine("LevelComplete");
-            money += rewardMoney;
+            cash += rewardMoney;
         }
         else if (GameObject.FindGameObjectsWithTag("Enemy").Length != 0)
             grantedLevel = false;
-    
+    }
+
+    void OnApplicationQuit(){
+        player.SaveData(); 
     }
 
     public int GetHealth(){return health;}
-    public static int GetMoney(){return money;}
-    public static void SetMoney(int updateMoney) {money = updateMoney;}
+    public static int GetMoney(){return cash;}
+    public static void SetMoney(int updateMoney) {cash = updateMoney;}
     public int GetLevel(){return level;}
     public int GetRewardAmount(){return rewardMoney;}
 }

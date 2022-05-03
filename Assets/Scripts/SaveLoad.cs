@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class SaveLoad
 {
-    private static string path = Application.persistentDataPath + "/VoxelTowerDefense.save";
+    private static readonly string path = Application.persistentDataPath + "/VoxelTowerDefense.save";
         public static void SaveData(Player player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -29,7 +29,9 @@ public class SaveLoad
         else
         {
             Debug.LogError("Unable to load player save data in " +path);
-            return null;
+            Debug.LogWarning("Loading default player data.");
+            PlayerData data = new PlayerData();
+            return data;
         }
     }
 }
