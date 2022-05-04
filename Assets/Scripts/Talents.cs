@@ -30,7 +30,8 @@ public class Talents : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = currentRank+"/"+maxRank;
+        if(text != null)
+            text.text = currentRank+"/"+maxRank;
     }
 
     public int GetSpellID(){return spellId;}
