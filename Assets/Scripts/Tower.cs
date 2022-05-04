@@ -7,9 +7,11 @@ public enum TOWER_TYPE{ MAGIC, LASER, MISSLE, TOWER_COUNT}
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField] private float shootRate = 50f;
-    [SerializeField] private float towerDamage = 10f;
-    [SerializeField] private float towerRange = 5f;
+    [SerializeField] private float defaultShootRate = 50f;
+    [SerializeField] private float shootRate = 0f;
+    [SerializeField] private float towerDamage = 0f;
+    [SerializeField] private float defaultTowerDamage = 10f;
+    [SerializeField] private float defaultTowerRange = 5f;
     [SerializeField] private int purchaseCost = 50;
     [SerializeField] private int baseUpgradeCost = 20;
     [SerializeField] private int incrementUpgrateCostAmount = 2;
@@ -32,8 +34,8 @@ public class Tower : MonoBehaviour
         if(GameObject.FindGameObjectWithTag("Player") != null){
             playerObj = GameObject.FindGameObjectWithTag("Player");
             player = playerObj.GetComponent<Player>();
-            towerDamage *= player.GetDamage();
-            shootRate *= player.GetAttackSpeed();
+            towerDamage = defaultTowerDamage * player.GetDamage();
+            shootRate = defaultShootRate * player.GetAttackSpeed();
 
         }
         totalCost = purchaseCost;
@@ -44,15 +46,18 @@ public class Tower : MonoBehaviour
     {
         sellPrice = totalCost - (totalCost * percentSell);
         player = playerObj.GetComponent<Player>();
+        towerDamage = defaultTowerDamage * player.GetDamage();
+        shootRate = defaultShootRate * player.GetAttackSpeed();
+
     }
 
     public void UpgradeTower()
     {
         if(currentUpgradeAmount < maxAmountOfUpgrades)
         {
-            towerDamage += incrementDamageRateUpgrade;
-            shootRate -= incrementShootRateUpgrade;
-            towerRange += incrementRangeRateUpgrade;
+            defaultTowerDamage += incrementDamageRateUpgrade;
+            defaultShootRate -= incrementShootRateUpgrade;
+            defaultTowerRange += incrementRangeRateUpgrade;
             totalCost += baseUpgradeCost;
             baseUpgradeCost *= incrementUpgrateCostAmount;
             currentUpgradeAmount++;
@@ -64,7 +69,7 @@ public class Tower : MonoBehaviour
     public float GetShootRate(){return shootRate;}
     public TOWER_TYPE GetTOWER_TYPE(){return towerType;}
     public float GetTowerDamage(){return towerDamage;}
-    public float GetTowerRange(){ return towerRange;}
+    public float GetTowerRange(){ return defaultTowerRange;}
     public GameObject GetTowerHead(){return towerHead;}
     public int GetCost(){return purchaseCost;}
     public int GetCurrentAmountUpgrade(){return currentUpgradeAmount;}
