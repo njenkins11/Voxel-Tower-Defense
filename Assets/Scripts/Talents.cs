@@ -4,7 +4,8 @@ using System.Security;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System;
+[Serializable]
 public class Talents : MonoBehaviour
 {
     [SerializeField] private int spellId;
@@ -17,7 +18,7 @@ public class Talents : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        text.text = currentRank+"/"+maxRank;
+        
     }
 
     public void addTalentPoint(){
@@ -29,6 +30,13 @@ public class Talents : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        text.text = currentRank+"/"+maxRank;
     }
+
+    public int GetSpellID(){return spellId;}
+    public int GetCurrentRank(){return currentRank;}
+    public int GetMaxRank(){return maxRank;}
+    public void SetSpellID(int spellId){this.spellId = spellId;}
+    public void SetCurrentRank(int cur){currentRank = cur;}
+    public void SetMaxRank(int rank){maxRank = rank;}
 }
