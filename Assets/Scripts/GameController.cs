@@ -26,6 +26,11 @@ public class GameController : MonoBehaviour
         StartCoroutine("SwitchToGameSceneIE");
     }
 
+    public void SwitchToTalentScene(){
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Talents");
+    }
+
     IEnumerator SwitchToGameSceneIE()
     {
           SceneManager.LoadScene("Game");
