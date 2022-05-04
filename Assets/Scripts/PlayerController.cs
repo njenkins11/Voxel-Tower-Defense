@@ -54,10 +54,6 @@ public class PlayerController : MonoBehaviour
             grantedLevel = false;
     }
 
-    void OnApplicationQuit(){
-        player.SaveData(); 
-    }
-
     public int GetHealth(){return health;}
     public static int GetMoney(){return cash;}
     public static void SetMoney(int updateMoney) {cash = updateMoney;}

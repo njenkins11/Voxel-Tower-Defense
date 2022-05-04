@@ -16298,10 +16298,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gold: 0
-  startCash: 0
-  health: 0
-  attackSpeed: 0
-  damage: 0
+  startCash: 100
+  health: 20
+  attackSpeed: 1
+  damage: 1
 --- !u!4 &995377902
 Transform:
   m_ObjectHideFlags: 0

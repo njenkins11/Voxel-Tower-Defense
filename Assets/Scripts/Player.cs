@@ -26,6 +26,10 @@ public class Player : MonoBehaviour
         SaveLoad.SaveData(this);
     }
 
+    void OnApplicationQuit(){
+        SaveData(); 
+    }
+
     public void LoadData(){
         PlayerData playerData = SaveLoad.LoadSave();
 
