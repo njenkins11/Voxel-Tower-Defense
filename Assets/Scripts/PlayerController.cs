@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     {
         health = player.GetHealth();
         cash = player.GetStartCash();
+        if(cash == 0)
+            cash = 100;
         grantedLevel = true;
         level = 1;
     }
