@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,7 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private GameObject deathPanel;
     [SerializeField] private GameObject talentsPanel;
     [SerializeField] private GameObject[] talentTitles;
+    [SerializeField] private GameObject[] talentTrees;
     private bool isPaused;
     private string message;
   
@@ -31,6 +33,8 @@ public class GameUIController : MonoBehaviour
         deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
         talentsPanel = GameObject.FindGameObjectWithTag("TalentsPanel");
         talentTitles = GameObject.FindGameObjectsWithTag("TalentTitle");
+        talentTrees = GameObject.FindGameObjectsWithTag("TalentTree");
+        ActivateTalentOne();
         pausePanel.SetActive(false);
         deathPanel.SetActive(false); 
         talentsPanel.SetActive(false);
@@ -109,6 +113,7 @@ public class GameUIController : MonoBehaviour
         }
     }
 
+    // Towers
     public void UpdateTowerBuyingOpt()
     {
         for(int i = 0; i < buyOpt.Length; i++)
@@ -128,6 +133,7 @@ public class GameUIController : MonoBehaviour
         sellText.text = "Sell: $" + selectedTower.GetSellPrice();
     }
 
+    // Talents
     public void ActivateTalentsPanel(){
         if(talentsPanel.activeInHierarchy)
             talentsPanel.SetActive(false);
@@ -139,24 +145,33 @@ public class GameUIController : MonoBehaviour
         for(int i = 0; i < talentTitles.Length; i++)
             if(i != 0){
                 talentTitles[i].GetComponent<Button>().interactable = true;
+                talentTrees[i].SetActive(false);
             }
-            else
+            else{
                 talentTitles[i].GetComponent<Button>().interactable = false;
+                talentTrees[i].SetActive(true);
+            }
     }
     public void ActivateTalentTwo(){
         for(int i = 0; i < talentTitles.Length; i++)
             if(i != 1){
                 talentTitles[i].GetComponent<Button>().interactable = true;
+                talentTrees[i].SetActive(false);
             }
-            else
+            else{
                 talentTitles[i].GetComponent<Button>().interactable = false;
+                talentTrees[i].SetActive(true);
+            }
     }
     public void ActivateTalentThree(){
         for(int i = 0; i < talentTitles.Length; i++)
             if(i != 2){
                 talentTitles[i].GetComponent<Button>().interactable = true;
+                talentTrees[i].SetActive(false);
             }
-            else
+            else{
                 talentTitles[i].GetComponent<Button>().interactable = false;
+                talentTrees[i].SetActive(true);
+            }
     }
 }

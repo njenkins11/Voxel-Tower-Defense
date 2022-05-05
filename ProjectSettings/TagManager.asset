@@ -16,6 +16,7 @@ TagManager:
   - DeathPanel
   - TalentsPanel
   - TalentTitle
+  - TalentTree
   layers:
   - Default
   - TransparentFX
