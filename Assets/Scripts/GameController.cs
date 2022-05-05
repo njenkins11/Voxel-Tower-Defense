@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour
 
     public void SwitchToTalentScene(){
         Time.timeScale = 1;
-        SceneManager.LoadScene("Talents");
+        SceneManager.LoadScene("PowerUps");
     }
 
     IEnumerator SwitchToGameSceneIE()
