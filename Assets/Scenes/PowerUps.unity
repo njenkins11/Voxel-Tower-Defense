@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 664232771}
   - component: {fileID: 664232770}
   - component: {fileID: 664232769}
-  - component: {fileID: 664232768}
+  - component: {fileID: 664232772}
   m_Layer: 5
   m_Name: Speed
   m_TagString: Untagged
@@ -462,22 +462,6 @@ RectTransform:
   m_AnchoredPosition: {x: 150, y: 100}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &664232768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 664232766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66a3f3867aef2b04b990bd25d03d1fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellId: 0
-  currentRank: 0
-  maxRank: 5
-  text: {fileID: 721928777}
 --- !u!114 &664232769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,8 +506,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 664232768}
-        m_TargetAssemblyTypeName: Talents, Assembly-CSharp
+      - m_Target: {fileID: 664232772}
+        m_TargetAssemblyTypeName: PowerUp, Assembly-CSharp
         m_MethodName: addTalentPoint
         m_Mode: 1
         m_Arguments:
@@ -572,6 +556,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664232766}
   m_CullTransparentMesh: 1
+--- !u!114 &664232772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664232766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9626d15da20af8941b10fd58ac325ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellId: 0
+  currentRank: 0
+  maxRank: 5
+  text: {fileID: 721928777}
 --- !u!1 &721928775
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,7 +584,7 @@ GameObject:
   - component: {fileID: 721928778}
   - component: {fileID: 721928777}
   m_Layer: 5
-  m_Name: Talent Rank
+  m_Name: Power Rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -943,7 +943,7 @@ GameObject:
   - component: {fileID: 1165368813}
   - component: {fileID: 1165368812}
   m_Layer: 5
-  m_Name: Talent Background
+  m_Name: PowerUp Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1174,8 +1174,8 @@ MonoBehaviour:
   damage: 0
   level: 0
   talentPoints: 0
-  talentArray:
-  - {fileID: 664232768}
+  powerUps:
+  - {fileID: 664232772}
 --- !u!4 &1837873766
 Transform:
   m_ObjectHideFlags: 0

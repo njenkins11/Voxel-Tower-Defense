@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
       [SerializeField] private float damage;
       [SerializeField] private int level;
       [SerializeField] private int talentPoints;
-      [SerializeField] private Talents[] talentArray;
+      [SerializeField] private PowerUp[] powerUps;
 
     public void SaveData(){
         SaveLoad.SaveData(this);
@@ -30,12 +30,12 @@ public class Player : MonoBehaviour
         damage = playerData.damage;
         attackSpeed = playerData.attackSpeed;
         startCash = playerData.startCash;
-        TalentData[] talent = playerData.talents;
+        PowerUpData[] powerUp = playerData.powerUps;
 
-        for(int i = 0; i < playerData.talents.Length; i++){
-            talentArray[i].SetSpellID(talent[i].spellId);
-            talentArray[i].SetMaxRank(talent[i].maxRank);
-            talentArray[i].SetCurrentRank(talent[i].currentRank);
+        for(int i = 0; i < playerData.powerUps.Length; i++){
+            powerUps[i].SetSpellID(powerUp[i].spellId);
+            powerUps[i].SetMaxRank(powerUp[i].maxRank);
+            powerUps[i].SetCurrentRank(powerUp[i].currentRank);
         }
     }
 
@@ -57,6 +57,6 @@ public class Player : MonoBehaviour
     public void SetLevel(int level){this.level = level;}
     public int GetTalentPoints(){return talentPoints;}
     public void DecreaseTalentPoints(){talentPoints--;}
-    public Talents[] GetTalents(){return talentArray;}
+    public PowerUp[] GetPowerUps(){return powerUps;}
 
 }
