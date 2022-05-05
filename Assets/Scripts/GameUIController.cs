@@ -18,6 +18,7 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject deathPanel;
+    [SerializeField] private GameObject talentsPanel;
     private bool isPaused;
     private string message;
   
@@ -27,8 +28,10 @@ public class GameUIController : MonoBehaviour
         pausePanel = GameObject.FindGameObjectWithTag("PausePanel");
         pauseButton = GameObject.FindGameObjectWithTag("PauseButton");
         deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
+        talentsPanel = GameObject.FindGameObjectWithTag("TalentsPanel");
         pausePanel.SetActive(false);
         deathPanel.SetActive(false); 
+        talentsPanel.SetActive(false);
         isPaused = false;
         levelUpText.enabled = false;
     }
@@ -121,5 +124,12 @@ public class GameUIController : MonoBehaviour
                                 "Total Kills: " + selectedTower.GetKillAmount();
         upgradeText.text = "Upgrade: $" + selectedTower.GetUpgradeCost();
         sellText.text = "Sell: $" + selectedTower.GetSellPrice();
+    }
+
+    public void ActivateTalentsPanel(){
+        if(talentsPanel.activeInHierarchy)
+            talentsPanel.SetActive(false);
+        else
+            talentsPanel.SetActive(true);
     }
 }
