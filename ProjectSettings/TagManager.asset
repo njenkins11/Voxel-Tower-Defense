@@ -15,6 +15,7 @@ TagManager:
   - MusicController
   - DeathPanel
   - TalentsPanel
+  - TalentTitle
   layers:
   - Default
   - TransparentFX

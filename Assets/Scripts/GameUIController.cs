@@ -19,6 +19,7 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject deathPanel;
     [SerializeField] private GameObject talentsPanel;
+    [SerializeField] private GameObject[] talentTitles;
     private bool isPaused;
     private string message;
   
@@ -29,6 +30,7 @@ public class GameUIController : MonoBehaviour
         pauseButton = GameObject.FindGameObjectWithTag("PauseButton");
         deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
         talentsPanel = GameObject.FindGameObjectWithTag("TalentsPanel");
+        talentTitles = GameObject.FindGameObjectsWithTag("TalentTitle");
         pausePanel.SetActive(false);
         deathPanel.SetActive(false); 
         talentsPanel.SetActive(false);
@@ -131,5 +133,30 @@ public class GameUIController : MonoBehaviour
             talentsPanel.SetActive(false);
         else
             talentsPanel.SetActive(true);
+    }
+
+    public void ActivateTalentOne(){
+        for(int i = 0; i < talentTitles.Length; i++)
+            if(i != 0){
+                talentTitles[i].GetComponent<Button>().interactable = true;
+            }
+            else
+                talentTitles[i].GetComponent<Button>().interactable = false;
+    }
+    public void ActivateTalentTwo(){
+        for(int i = 0; i < talentTitles.Length; i++)
+            if(i != 1){
+                talentTitles[i].GetComponent<Button>().interactable = true;
+            }
+            else
+                talentTitles[i].GetComponent<Button>().interactable = false;
+    }
+    public void ActivateTalentThree(){
+        for(int i = 0; i < talentTitles.Length; i++)
+            if(i != 2){
+                talentTitles[i].GetComponent<Button>().interactable = true;
+            }
+            else
+                talentTitles[i].GetComponent<Button>().interactable = false;
     }
 }
