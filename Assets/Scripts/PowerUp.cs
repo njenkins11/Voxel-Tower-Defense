@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
+    public enum POWER_TYPE {ATTACKSPEED, DAMAGE, HEALTH, EXP, GOLD};
     [SerializeField] private int spellId;
     [SerializeField] private int currentRank;
     [SerializeField] private int maxRank;
     [SerializeField] private Text text;
+    [SerializeField] private POWER_TYPE powerType = POWER_TYPE.ATTACKSPEED;
     
     public PowerUp(PowerUpData data){
         spellId = data.spellId;
@@ -17,6 +19,7 @@ public class PowerUp : MonoBehaviour
     }
 
     public void addRank(){
+        PowerUpController.AddAttributes(this);
         if(currentRank < maxRank)
             currentRank++;
         text.text = currentRank+"/"+maxRank;
@@ -29,6 +32,7 @@ public class PowerUp : MonoBehaviour
             text.text = currentRank+"/"+maxRank;
     }
 
+    public POWER_TYPE GetPOWER_TYPE(){return powerType;}
     public int GetSpellID(){return spellId;}
     public int GetCurrentRank(){return currentRank;}
     public int GetMaxRank(){return maxRank;}

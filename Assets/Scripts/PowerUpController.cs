@@ -1,14 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.TerrainTools;
 using UnityEngine;
 
 public class PowerUpController : MonoBehaviour
 {
     public PowerUp[] powerUps;
+    public static readonly float SPEED_INCREASE = 0.05f;
+    public static readonly float DAMAGE_INCREASE = 0.25f;
+    public static readonly int HEALTH_INCREASE = 5;
+    public static readonly float EXP_INCREASE = 0.25f;
+    public static readonly float GOLD_INCREASE = 0.25f;
 
     void Start()
     {
         LoadPower();
+    }
+
+    public static void AddAttributes(PowerUp powerUp) { 
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>(); 
+        switch(powerUp.GetPOWER_TYPE()){
+            case PowerUp.POWER_TYPE.ATTACKSPEED:
+                player.SetAttackSpeed(player.GetAttackSpeed()-SPEED_INCREASE);
+            break;
+            case PowerUp.POWER_TYPE.DAMAGE:
+            break;
+            case PowerUp.POWER_TYPE.HEALTH:
+            break;
+            case PowerUp.POWER_TYPE.EXP:
+            break;
+            case PowerUp.POWER_TYPE.GOLD:
+            break;
+        }     
+
     }
 
     public void LoadPower(){
