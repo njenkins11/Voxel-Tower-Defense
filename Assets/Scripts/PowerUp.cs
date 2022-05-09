@@ -9,7 +9,13 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private int currentRank;
     [SerializeField] private int maxRank;
     [SerializeField] private Text text;
-    private Player player;
+    
+    public PowerUp(PowerUpData data){
+        spellId = data.spellId;
+        currentRank = data.currentRank;
+        maxRank = data.maxRank;
+    }
+
     public void addTalentPoint(){
         if(currentRank < maxRank)
             currentRank++;

@@ -12,7 +12,6 @@ public class PlayerData
     public float attackSpeed;
     public int level;
     public int availableTalentpoints;
-    public PowerUpData[] powerUps;
 
     public PlayerData(Player player){
         gold = player.GetGold();
@@ -22,12 +21,6 @@ public class PlayerData
         startCash = player.GetStartCash();
         level = player.GetLevel();
         availableTalentpoints = player.GetTalentPoints();
-        this.powerUps = new PowerUpData[player.GetPowerUps().Length];
-        PowerUp[] powerUps = player.GetPowerUps();
-        
-        for(int i = 0; i < player.GetPowerUps().Length; i++){
-            this.powerUps[i] = new PowerUpData(powerUps[i]);
-        }
     }
 
     public PlayerData(){
