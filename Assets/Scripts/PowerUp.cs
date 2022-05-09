@@ -16,7 +16,7 @@ public class PowerUp : MonoBehaviour
         maxRank = data.maxRank;
     }
 
-    public void addTalentPoint(){
+    public void addRank(){
         if(currentRank < maxRank)
             currentRank++;
         text.text = currentRank+"/"+maxRank;
