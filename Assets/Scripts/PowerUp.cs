@@ -10,7 +10,9 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private int currentRank;
     [SerializeField] private int maxRank;
     [SerializeField] private Text text;
+    [SerializeField] private int cost = 250;
     [SerializeField] private POWER_TYPE powerType = POWER_TYPE.ATTACKSPEED;
+    [SerializeField] private Player player;
     
     public PowerUp(PowerUpData data){
         spellId = data.spellId;
@@ -20,9 +22,11 @@ public class PowerUp : MonoBehaviour
 
     public void addRank(){
         PowerUpController.AddAttributes(this);
-        if(currentRank < maxRank)
+        if(currentRank < maxRank && player.GetGold() >= cost){
             currentRank++;
-        text.text = currentRank+"/"+maxRank;
+            player.SetGold(player.GetGold() - cost);
+            cost *= 2;
+        }
     }
 
     // Update is called once per frame
@@ -32,7 +36,13 @@ public class PowerUp : MonoBehaviour
             text.text = currentRank+"/"+maxRank;
     }
 
+    void Start(){
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
+
     public POWER_TYPE GetPOWER_TYPE(){return powerType;}
+    public int GetCost(){return cost;}
+    public void SetCost(int cost){this.cost = cost;}
     public int GetSpellID(){return spellId;}
     public int GetCurrentRank(){return currentRank;}
     public int GetMaxRank(){return maxRank;}

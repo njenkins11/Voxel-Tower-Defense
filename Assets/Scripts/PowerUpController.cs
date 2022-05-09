@@ -48,6 +48,7 @@ public class PowerUpController : MonoBehaviour
                 powerUps[i].SetMaxRank(powerData[i].maxRank);
                 powerUps[i].SetCurrentRank(powerData[i].currentRank);
                 powerUps[i].SetSpellID(powerData[i].spellId);
+                powerUps[i].SetCost(powerData[i].cost);
             }
     }
 
