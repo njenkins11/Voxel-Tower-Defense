@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameUIController>().Death();
             
             if(!goldRewarded){
-                player.SetGold(player.GetGold() + (goldReward * level));
+                player.SetGold(player.GetGold() + (int)((goldReward * level) * player.GetGoldIncrease()));
                 goldRewarded = true;
             }
         }

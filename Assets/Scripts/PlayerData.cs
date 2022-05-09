@@ -10,6 +10,8 @@ public class PlayerData
     public int startCash;
     public float damage;
     public float attackSpeed;
+    public float goldIncrease;
+    public float expIncrease;
     public int level;
     public int availableTalentpoints;
 
@@ -21,6 +23,8 @@ public class PlayerData
         startCash = player.GetStartCash();
         level = player.GetLevel();
         availableTalentpoints = player.GetTalentPoints();
+        goldIncrease = player.GetGoldIncrease();
+        expIncrease = player.GetExpIncrease();
     }
 
     public PlayerData(){
@@ -31,5 +35,7 @@ public class PlayerData
         startCash = 100;
         level = 1;
         availableTalentpoints = 1;
+        goldIncrease = 1;
+        expIncrease = 1;
     }
 }

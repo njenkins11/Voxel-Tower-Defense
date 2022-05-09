@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
         damage = playerData.damage;
         attackSpeed = playerData.attackSpeed;
         startCash = playerData.startCash;
+        goldIncrease = playerData.goldIncrease;
+        expIncrease = playerData.expIncrease;
     }
 
     void Start(){
