@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
       [SerializeField] private float attackSpeed;
       [SerializeField] private float damage;
       [SerializeField] private int level;
+      [SerializeField] private float goldIncrease;
+      [SerializeField] private float expIncrease;
       [SerializeField] private int talentPoints;
 
     public void SaveData(){
@@ -35,6 +37,10 @@ public class Player : MonoBehaviour
         LoadData();
     }
 
+    public float GetExpIncrease(){return expIncrease;}
+    public void SetExpIncrease(float exp){expIncrease = exp;}
+    public float GetGoldIncrease(){return goldIncrease;}
+    public void SetGoldIncrease(float gold){goldIncrease = gold;}
     public int GetGold(){return gold;}
     public void SetGold(int gold){this.gold = gold;}
     public float GetAttackSpeed(){return attackSpeed;}

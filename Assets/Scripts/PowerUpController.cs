@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.TerrainTools;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class PowerUpController : MonoBehaviour
 {
@@ -22,15 +23,19 @@ public class PowerUpController : MonoBehaviour
         switch(powerUp.GetPOWER_TYPE()){
             case PowerUp.POWER_TYPE.ATTACKSPEED:
                 player.SetAttackSpeed(player.GetAttackSpeed()-SPEED_INCREASE);
-            break;
+                break;
             case PowerUp.POWER_TYPE.DAMAGE:
-            break;
+                player.SetDamage(player.GetDamage() + DAMAGE_INCREASE);
+                break;
             case PowerUp.POWER_TYPE.HEALTH:
-            break;
+                player.SetHealth(player.GetHealth() + HEALTH_INCREASE);
+                break;
             case PowerUp.POWER_TYPE.EXP:
-            break;
+                player.SetExpIncrease(player.GetExpIncrease() + EXP_INCREASE);
+                break;
             case PowerUp.POWER_TYPE.GOLD:
-            break;
+                player.SetGoldIncrease(player.GetGoldIncrease() + GOLD_INCREASE);
+                break;
         }     
 
     }
