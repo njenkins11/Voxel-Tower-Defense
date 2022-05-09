@@ -79,9 +79,13 @@ public class GameUIController : MonoBehaviour
 
     public void UpdateTextUI()
     {
+        if(healthText != null)
         healthText.text = GetComponent<PlayerController>().GetHealth().ToString();
+        if(moneyText != null)
         moneyText.text = "$" + PlayerController.GetMoney();
+        if(timeText != null)
         timeText.text =  ((int) GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>().GetTimer()).ToString();
+        if(levelText != null)
         levelText.text = GetComponent<PlayerController>().GetLevel().ToString();
     }
 

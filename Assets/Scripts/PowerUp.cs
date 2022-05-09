@@ -18,13 +18,14 @@ public class PowerUp : MonoBehaviour
         spellId = data.spellId;
         currentRank = data.currentRank;
         maxRank = data.maxRank;
+        cost = data.cost;
     }
 
     public void addRank(){
-        PowerUpController.AddAttributes(this);
         if(currentRank < maxRank && player.GetGold() >= cost){
             currentRank++;
             player.SetGold(player.GetGold() - cost);
+            PowerUpController.AddAttributes(this);
             cost *= 2;
         }
     }

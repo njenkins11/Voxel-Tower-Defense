@@ -20,5 +20,6 @@ public class PowerUpData
         spellId = 0;
         currentRank = 0;
         maxRank = 5;
+        cost = 250;
     }
 }

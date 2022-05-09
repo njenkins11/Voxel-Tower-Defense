@@ -18259,9 +18259,9 @@ MonoBehaviour:
   attackSpeed: 1
   damage: 1
   level: 0
+  goldIncrease: 0
+  expIncrease: 0
   talentPoints: 0
-  talentArray:
-  - {fileID: 738137795}
 --- !u!4 &995377902
 Transform:
   m_ObjectHideFlags: 0

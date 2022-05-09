@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private int level;
     private bool grantedLevel;
     private int rewardMoney;
+    private readonly int goldReward = 5;
     
     // Start is called before the first frame update
     void Start()
@@ -32,11 +34,16 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        
+        bool goldRewarded = false;
         if(health <= 0)
         {
             Debug.Log("Game Over!");
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameUIController>().Death();
+            
+            if(!goldRewarded){
+                player.SetGold(player.GetGold() + (goldReward * level));
+                goldRewarded = true;
+            }
         }
     }
 

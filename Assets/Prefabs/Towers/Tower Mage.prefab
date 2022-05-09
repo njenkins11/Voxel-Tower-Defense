@@ -572,9 +572,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eadbd927b1050e44b356fb43cd48244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultShootRate: 3
   shootRate: 3
   towerDamage: 5
-  towerRange: 7
+  defaultTowerDamage: 5
+  defaultTowerRange: 5
   purchaseCost: 50
   baseUpgradeCost: 20
   incrementUpgrateCostAmount: 2
@@ -585,7 +587,6 @@ MonoBehaviour:
   percentSell: 0.7
   towerType: 0
   towerHead: {fileID: 5087920444382926987}
-  player: {fileID: 3078904197329070660, guid: 5d2348618ca04ca4c8087317e04a9e6b, type: 3}
 --- !u!114 &6603487395073638631
 MonoBehaviour:
   m_ObjectHideFlags: 0
