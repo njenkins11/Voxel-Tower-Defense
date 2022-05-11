@@ -13,6 +13,7 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private int cost = 250;
     [SerializeField] private POWER_TYPE powerType = POWER_TYPE.ATTACKSPEED;
     [SerializeField] private Player player;
+    public Text information;
     
     public PowerUp(PowerUpData data){
         spellId = data.spellId;
