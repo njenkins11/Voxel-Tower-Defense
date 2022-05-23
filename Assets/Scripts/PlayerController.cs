@@ -34,17 +34,15 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        bool goldRewarded = false;
         if(health <= 0)
         {
             Debug.Log("Game Over!");
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameUIController>().Death();
-            
-            if(!goldRewarded){
-                player.SetGold(player.GetGold() + (int)((goldReward * level) * player.GetGoldIncrease()));
-                goldRewarded = true;
-            }
         }
+    }
+
+    public void OnDestroy(){
+        player.SetGold(player.GetGold() + (int)((goldReward * (level - 1)) * player.GetGoldIncrease()));
     }
 
     public void UpdateLevel()

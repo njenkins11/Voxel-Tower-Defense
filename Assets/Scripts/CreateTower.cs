@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CreateTower : MonoBehaviour
 {
-    // Start is called before the first frame update
     private GameObject towerLocation;
     [SerializeField] private GameObject towerPrefab;
     [SerializeField] private GameObject towerPrefab2;
